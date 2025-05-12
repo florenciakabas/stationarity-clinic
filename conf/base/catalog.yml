@@ -53,6 +53,24 @@ shuttles:
   load_args:
     engine: openpyxl
 
+# Time series datasets
+time_series:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/time_series.csv
+  load_args:
+    index_col: 0
+    parse_dates: true
+
+stationarity_assessment_results:
+  type: pickle.PickleDataset
+  filepath: data/02_intermediate/stationarity_assessment_results.pickle
+  versioned: true
+
+stationarity_recommendations:
+  type: pickle.PickleDataset
+  filepath: data/03_primary/stationarity_recommendations.pickle
+  versioned: true
+
 preprocessed_companies:
   type: pandas.ParquetDataset
   filepath: data/02_intermediate/preprocessed_companies.parquet

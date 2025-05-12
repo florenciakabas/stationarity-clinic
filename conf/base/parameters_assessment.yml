@@ -1,0 +1,6 @@
+stationarity_assessment:
+  # Significance level for hypothesis testing
+  alpha: 0.05
+  
+  # Whether to perform detailed assessment with multiple test configurations
+  detailed: true
