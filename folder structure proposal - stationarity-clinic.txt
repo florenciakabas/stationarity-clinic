@@ -1,0 +1,49 @@
+stationarity-clinic/
+├── .gitignore
+├── pyproject.toml                # Package metadata and dependencies
+├── README.md                     # Package documentation
+├── conf/                         # Kedro configuration directory
+│   ├── base/                     # Base configuration
+│   │   ├── catalog.yml           # Data catalog configuration
+│   │   └── parameters.yml        # Default parameters
+│   └── local/                    # Local environment overrides
+├── notebooks/                    # Example notebooks
+│   ├── example.ipynb             # End-to-end workflow example
+├── data/                         # Data directory
+│   ├── 11_raw/                   # Raw time series data
+│   ├── 12_transformed/           # Processed data
+│   └── 13_summary/               # Reports ? (ask how to best store non tabular data)
+├── src/                          # Source code
+│   ├── stationarity-clinic/ # Main package directory
+│       ├── __init__.py           # Package initialization
+│       ├── __main__.py            
+│       ├── settings.py            
+│       ├── pipeline_registry.py  
+│       ├── assessment-and-recommendation/          # Stationarity Assessment and Recommendation module
+│       │   ├── __init__.py
+│       │   └── assessor.py         # Comprehensive assessment Class (ADF, KPSS, etc. tests)
+│       │   ├── recommender.py     # Main recommendation Class
+│       ├── visual-inspection/        # Visualization module
+│       │   ├── __init__.py
+│       │   ├── visual_inspector.py      # Class with ACF/PACF plots, before/after transformation plots
+│       ├── stabilization/           # Transformation implementation module
+│       │   ├── __init__.py
+│       │   ├── stabilizer.py     # Class with differencing transformations, Log, Box-Cox, decomposition
+│       ├── reporting/            # Reporting module
+│       │   ├── __init__.py
+│       │   ├── reporter.py     # Class with summary report of stationarity, transformations, modeling implications
+│       ├── utils/                # Utility functions
+│       │   ├── __init__.py
+│       │   ├── data_validation.py       # Input validation (I'm still not sure what we will need here)
+│       └── pipelines/            # Kedro pipeline definitions
+│           ├── __init__.py
+│           ├── assessment-and-recommendation/
+│           ├── stabilization/
+│           └── reporting/
+|── tests/  # Test directory
+│   ├── __init__.py
+│   ├── test-assessment-and-recommendation/      # Tests for diagnostics module
+│   ├── test-visual-inspection/   # Tests for recommendation module
+│   ├── test-stabilization/       # Tests for stabilizer module
+│   └── test-reporting/    # Tests for visualization module
+└── docs/                         # Documentation
